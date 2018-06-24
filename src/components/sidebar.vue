@@ -26,10 +26,7 @@
         <span style="color: #FF6868">Logo</span>
       </el-button>
 
-      <el-input
-        ref="searchIpt"
-        class="layout-sidebar-search"
-        suffix-icon="el-icon-search"/>
+      <search-box ref="searchBox"/>
 
       <div class="line"/>
 
@@ -50,7 +47,8 @@
       <el-menu
         background-color="#1C1C1C"
         router>
-        <el-menu-item-group v-for="(item, index) of menuList"
+        <el-menu-item-group
+          v-for="(item, index) of menuList"
           :key="index">
           <span slot="title">{{ item.title }}</span>
           <el-menu-item v-for="(item, index) of item.children"
@@ -63,7 +61,12 @@
 </template>
 
 <script>
+import SearchBox from '@/components/search-box'
+
 export default {
+  components: {
+    SearchBox,
+  },
   props: {
     isExpand: {
       type: Boolean,
@@ -114,7 +117,7 @@ export default {
     openSearch() {
       this.handleExpandOpen()
       this.$nextTick(() => {
-        this.$refs.searchIpt.focus()
+        this.$refs.searchBox.$el.focus()
       })
     },
     unExpandMouseenter() {
@@ -189,11 +192,6 @@ export default {
       margin: 80px 0 100px 0;
       background: #d8d8d8;
       width: 190px;
-    }
-
-    .layout-sidebar-search {
-      margin: 0 65px 0 60px;
-      width: 260px;
     }
 
     .line {

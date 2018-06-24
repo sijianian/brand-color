@@ -1,5 +1,9 @@
 @import './config';
 
+$MQNarrow: 959px;
+$MQMobile: 719px;
+$MQMobileNarrow: 419px;
+
 // narrow desktop / iPad
 @media (max-width: $MQNarrow) {
   .layout-page {
