@@ -1,0 +1,84 @@
+@import './config';
+
+// narrow desktop / iPad
+@media (max-width: $MQNarrow) {
+  .layout-page {
+    header {
+      padding-left: 100px;
+      .locale {
+        top: 30px;
+        right: 30px;
+      }
+    }
+    main {
+      padding: 0 100px;
+    }
+  }
+
+  .page-brand-color .tabs .el-tabs__nav-wrap{
+    margin: 0 -100px 0 -100px;
+    padding-left: 100px;
+  }
+}
+
+// wide mobile
+@media (max-width: $MQMobile) {
+  .layout-page {
+    header {
+      padding-left: 1.5rem;
+      .locale {
+        top: 30px;
+        right: 30px;
+      }
+    }
+    main {
+      padding: 0 1.5rem;
+    }
+  }
+
+  .page-brand-color .tabs .el-tabs__nav-wrap{
+    margin: 0 -1.5rem 0 -1.5rem;
+    padding-left: 1.5rem;
+  }
+
+  .layout-sidebar {
+    &.un-hover-expand {
+      width: 60px;
+    }
+  }
+
+  .page-container {
+    padding-left: 60px !important;
+  }
+}
+
+// narrow mobile
+@media (max-width: $MQMobileNarrow) {
+  .layout-page {
+    header {
+      padding-left: 1rem;
+      .locale {
+        top: 30px;
+        right: 30px;
+      }
+    }
+    main {
+      padding: 0 1rem;
+    }
+  }
+
+  .page-brand-color .tabs .el-tabs__nav-wrap{
+    margin: 0 -1rem 0 -1rem;
+    padding-left: 1rem;
+  }
+
+  .layout-sidebar {
+    &.un-hover-expand {
+      width: 60px;
+    }
+  }
+
+  .page-container {
+    padding-left: 60px !important;
+  }
+}
