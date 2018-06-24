@@ -46,7 +46,7 @@ export default {
 
 <style lang="scss">
 .algolia-search-input {
-  background-image: url(../assets/search.svg) !important;
+  background-image: url(./../assets/search.svg) !important;
   background-repeat: no-repeat;
   background-size: 1.4em;
   background-position: 90% 50%;
