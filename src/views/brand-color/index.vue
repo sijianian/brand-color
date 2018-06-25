@@ -2,81 +2,87 @@
   <page
     class="page-brand-color"
     title="Brand Color">
-    <el-tabs class="tabs">
-      <el-tab-pane label="Neutral colors">
-        <div class="content">
-          <p>
-            Alibaba.com is a global platform where buyers and suppliers engage in conducting business from around the world. Thus our design
-            Alibaba.com is a global platform where buyers and suppliers engage in conducting business from around the world. Thus our design
-          </p>
-
-          <h2>Neutral colors</h2>
-
-          <ul class="color-wrap">
-            <li v-for="(item, index) of neutralcolors"
-              :key="index">
-              <div class="main"
-                :style="{
-                  background: item.color,
-                }">
-                <span class="copy"
-                  @click="copy(item)">Copy</span>
-              </div>
-              <div class="name">{{ item.name }}</div>
-              <div class="color"
-                :style="{
-                  color: item.color,
-                }">{{ item.color }}</div>
-            </li>
-          </ul>
-
-          <h3>Case</h3>
-
-          <div class="img-wrap">
-            <img src="../../assets/Snip20180624_23.png" alt="">
-          </div>
-
-          <h2>Font colors</h2>
-
-          <ul class="color-wrap">
-            <li v-for="(item, index) of fontsColors"
-              :key="index">
-              <div class="main"
-                :style="{
-                  background: item.color,
-                }">
-                <span class="copy"
-                  @click="copy(item)">Copy</span>
-              </div>
-              <div class="name">{{ item.name }}</div>
-              <div class="color"
-                :style="{
-                  color: item.color,
-                }">{{ item.color }}</div>
-            </li>
-          </ul>
-
-          <h3>Case</h3>
-
-          <div class="img-wrap">
-            <img src="../../assets/Snip20180624_24.png" alt="">
-
-            <br>
-
-            <img src="../../assets/Snip20180624_24.png" alt="">
-          </div>
-        </div>
-      </el-tab-pane>
-      <el-tab-pane label="Color 01">
-        one
-      </el-tab-pane>
-      <el-tab-pane label="Color 01">
-        two
-      </el-tab-pane>
+    <el-tabs class="tabs"
+      slot="header-other"
+      v-model="activeName">
+      <el-tab-pane
+        label="Neutral colors"
+        name="1"/>
+      <el-tab-pane
+        label="Color 01"
+        name="2"/>
+      <el-tab-pane
+        label="Color 02"
+        name="3"/>
     </el-tabs>
 
     <div class="download">
       <img src="../../assets/sketch.png" alt="">
+    </div>
+
+    <div class="content"
+      v-show="activeName === '1'">
+      <p>
+        Alibaba.com is a global platform where buyers and suppliers engage in conducting business from around the world. Thus our design
+        <br>
+        Alibaba.com is a global platform where buyers and suppliers engage in conducting business from around the world. Thus our design
+      </p>
+
+      <h2>Neutral colors</h2>
+
+      <ul class="color-wrap">
+        <li v-for="(item, index) of neutralcolors"
+          :key="index">
+          <div class="main"
+            :style="{
+              background: item.color,
+            }">
+            <span class="copy"
+              @click="copy(item)">Copy</span>
+          </div>
+          <div class="name">{{ item.name }}</div>
+          <div class="color"
+            :style="{
+              color: item.color,
+            }">{{ item.color }}</div>
+        </li>
+      </ul>
+
+      <h3>Case</h3>
+
+      <div class="img-wrap">
+        <img src="../../assets/Snip20180624_23.png" alt="">
+      </div>
+
+      <h2>Font colors</h2>
+
+      <ul class="color-wrap">
+        <li v-for="(item, index) of fontsColors"
+          :key="index">
+          <div class="main"
+            :style="{
+              background: item.color,
+            }">
+            <span class="copy"
+              @click="copy(item)">Copy</span>
+          </div>
+          <div class="name">{{ item.name }}</div>
+          <div class="color"
+            :style="{
+              color: item.color,
+            }">{{ item.color }}</div>
+        </li>
+      </ul>
+
+      <h3>Case</h3>
+
+      <div class="img-wrap">
+        <img src="../../assets/Snip20180624_24.png" alt="">
+
+        <br>
+
+        <img src="../../assets/Snip20180624_24.png" alt="">
+      </div>
     </div>
 
     <back-top>
@@ -85,7 +91,7 @@
           :style="{
             marginTop: '5px'
           }">
-          <i class="el-icon-tickets"
+          <i class="iconfont icon-help"
             :style="{
               fontSize: '20px',
               color: '#fff',
@@ -106,6 +112,7 @@ export default {
   },
   data() {
     return {
+      activeName: '1',
       neutralcolors: [
         {
           name: 'line1-1 浅',
@@ -160,7 +167,7 @@ export default {
     copy(item) {
       clipboard.copy(item.color)
       this.$message({
-        message: `Copy ${item.name} Success!`,
+        message: `Copy ${item.color} Success!`,
         type: 'success',
       })
     },
@@ -171,11 +178,19 @@ export default {
 <style lang="scss">
 .page-brand-color {
   position: relative;
+  text-align: left;
+
+  p {
+    margin: 5.6rem 0 8rem 0;
+  }
+
+  h2 {
+    margin-bottom: 12px;
+  }
 
   .tabs {
+    height: 50px;
     .el-tabs__nav-wrap {
-      margin: 0 -190px;
-      padding-left: 190px;
       background: #ebebeb;
     }
     .el-tabs__nav-wrap::after {
@@ -188,7 +203,7 @@ export default {
       height: 4px;
     }
     .el-tabs__item {
-      font-size: 20px;
+      font-size: 2rem;
       height: 50px;
       line-height: 50px;
       &.is-active {
@@ -200,14 +215,15 @@ export default {
   .color-wrap {
     display: flex;
     flex-wrap: wrap;
+    justify-content: flex-start;
 
     li {
       margin-bottom: 35px;
 
       .main {
         position: relative;
-        height: 114px;
-        width: 191px;
+        height: 11.4rem;
+        width: 19.1rem;
 
         &:hover {
           transform: scale(1.05, 1.02);
@@ -228,9 +244,6 @@ export default {
           transform: translate(-50%, -50%);
           cursor: pointer;
           text-decoration: underline;
-
-          &:hover {
-          }
         }
       }
       .name {
@@ -243,8 +256,9 @@ export default {
   }
 
   .img-wrap {
+    box-sizing: border-box;
     margin-top: 20px;
-    padding: 30px 10px 26px 10px;
+    padding: 3rem 1rem 2.6rem 1rem;
     background: #f4f4f4;
     text-align: center;
 
@@ -253,10 +267,15 @@ export default {
     }
   }
 
+  .content {
+    padding-bottom: 15rem;
+  }
+
   .download {
+    display: none;
     position: absolute;
-    top: 220px;
-    right: 185px;
+    top: 2.2rem;
+    right: 18.5rem;
     cursor: pointer;
   }
 }

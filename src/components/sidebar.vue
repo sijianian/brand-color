@@ -10,10 +10,10 @@
       v-show="!isExpand">
       <div class="logo"/>
 
-      <i class="el-icon-search"
+      <i class="iconfont icon-search"
         @click="openSearch"/>
 
-      <i class="el-icon-menu"
+      <i class="iconfont icon-category"
         @click="handleExpandOpen"/>
     </div>
 
@@ -27,6 +27,8 @@
       </el-button>
 
       <search-box ref="searchBox"/>
+
+      <i class="iconfont icon-search search-box-icon"/>
 
       <div class="line"/>
 
@@ -154,6 +156,13 @@ export default {
     width: 80px;
   }
 
+  .search-box-icon {
+    position: absolute;
+    top: 230px;
+    right: 80px;
+    font-size: 20px;
+  }
+
   .un-expand-wrap {
     display: flex;
     flex-direction: column;
@@ -173,6 +182,10 @@ export default {
       font-size: 30px;
       color: #999999;
       cursor: pointer;
+
+      &.icon-category {
+        font-size: 18px;
+      }
     }
   }
 
@@ -228,6 +241,8 @@ export default {
         .el-menu-item {
           font-size: 18px;
           color: #999999 !important;
+          height: 32px;
+          line-height: 32px;
 
           &:hover,
           &.is-active {

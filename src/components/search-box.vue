@@ -1,8 +1,7 @@
 <template>
   <input
     class="algolia-search-input el-input__inner"
-    id="algolia-search-input"
-    placeholder="search">
+    id="algolia-search-input">
 </template>
 
 <script>
@@ -36,8 +35,7 @@ export default {
     options(newValue) {
       this.$el.innerHTML = `<input class="form-control
         d-flex ml-2 mr-auto algolia-search-input search-query"
-        id="asalgolia-search-input"
-        placeholder="搜索文档">`
+        id="asalgolia-search-input">`
       this.initialize(newValue)
     },
   },
@@ -46,10 +44,6 @@ export default {
 
 <style lang="scss">
 .algolia-search-input {
-  background-image: url(./../assets/search.svg) !important;
-  background-repeat: no-repeat;
-  background-size: 1.4em;
-  background-position: 90% 50%;
   border-radius: 20px !important;
   width: 260px !important;
 }

@@ -1,11 +1,11 @@
 @import './config';
-@import './nprogress';
 @import './arrow';
 @import './_reset';
 
 html, body {
   padding: 0;
   margin: 0;
+  font-size: 62.5%;
 }
 
 body {
@@ -20,6 +20,13 @@ a {
   font-weight: 500;
   color: $accentColor;
   text-decoration: none;
+}
+
+p {
+  text-align: left;
+  font-size: 2rem;
+  color: #050505;
+  line-height: 2.8rem;
 }
 
 p a code {
@@ -50,19 +57,23 @@ strong {
 h1, h2, h3, h4, h5, h6 {
   font-weight: 600;
   line-height: 1.25;
+  text-align: left;
 }
 
 h1 {
-  font-size: 2.2rem;
+  font-size: 3rem;
 }
 
 h2 {
-  font-size: 1.65rem;
+  font-size: 2.4rem;
   padding-bottom: 0.3rem;
 }
 
 h3 {
-  font-size: 1.35rem;
+  display: inline-block;
+  font-size: 1.8rem;
+  color: #666666;
+  border-bottom: 4px solid #666666;
 }
 
 p, ul, ol {
@@ -91,4 +102,24 @@ th, td {
   padding: 0.6em 1em;
 }
 
-@import './mobile.scss';
+@media screen and (max-width:321px){
+  html, body{
+      font-size: 30.5%;
+  }
+}
+@media screen and (max-width: 376px)and (min-width: 321px){
+  html, body{
+      font-size: 36.5%;
+  }
+}
+@media screen and (max-width: 414px) and (min-width: 376px){
+  html, body{
+      font-size: 38.5%;
+  }
+
+}
+@media screen and (max-width: 580px) and (min-width: 414px) {
+  html, body {
+      font-size: 42.5%;
+  }
+}
