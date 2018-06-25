@@ -2,7 +2,7 @@
 
 使用 vue-cli 3.x 构建，所以需要更改配置
 
-请前往 [https://cli.vuejs.org/](https://cli.vuejs.org/) 查阅资料
+请前往 [https://cli.vuejs.org/](https://cli.vuejs.org/) 查阅资料 -_-!
 
 > Node 版本 8 以上
 
@@ -10,15 +10,15 @@
 # start
 $ npm install
 
-# serve
+# serve 开发模式
 npm run serve
 
-# build
+# build 编译项目
 npm run build
 
-# lint
+# lint 格式化
 npm run lint
 
-# deploy
+# deploy 构建部署到 Github Pages
 npm run deploy
 ```
