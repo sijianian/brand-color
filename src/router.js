@@ -1,6 +1,6 @@
 import Vue from 'vue'
 import Router from 'vue-router'
-// import Home from './views/home.vue'
+import Home from './views/home'
 // import About from './views/about.vue'
 import BrandColor from './views/brand-color'
 
@@ -11,7 +11,7 @@ export default new Router({
     {
       path: '/',
       name: 'home',
-      component: BrandColor,
+      component: Home,
     },
     {
       path: '/about',

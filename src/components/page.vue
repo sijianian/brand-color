@@ -1,15 +1,12 @@
 <template>
   <div class="layout-page">
-    <header>
-      <span class="title">{{ title }}</span>
+    <slot name="header">
+      <header>
+        <span class="title">{{ title }}</span>
 
-      <span class="locale">
-        <a class="active">En</a> /
-        <a>中文</a>
-      </span>
-
-      <slot name="header-other"/>
-    </header>
+        <slot name="header-other"/>
+      </header>
+    </slot>
 
     <main>
       <slot/>
@@ -18,15 +15,42 @@
     <footer>
       <slot name="footer"/>
     </footer>
+
+    <back-top
+      :target="getBackTopTarget">
+      <template slot="other">
+        <div class="m-back-top-inner"
+          :style="{
+            marginTop: '5px'
+          }">
+          <i class="iconfont icon-help"
+            :style="{
+              fontSize: '20px',
+              color: '#fff',
+            }"/>
+        </div>
+      </template>
+    </back-top>
+
   </div>
 </template>
 
 <script>
+import BackTop from '@/components/back-top'
+
 export default {
+  components: {
+    BackTop,
+  },
   props: {
     title: {
       type: String,
       default: '',
+    },
+  },
+  methods: {
+    getBackTopTarget() {
+      return document.body.querySelector('.layout-container')
     },
   },
 }
@@ -53,27 +77,11 @@ export default {
       color: #333333;
       text-align: left;
     }
-
-    .locale {
-      position: absolute;
-      top: 6.7rem;
-      right: 18.5rem;
-      font-size: 1.2rem;
-      color: #333333;
-
-      a {
-        cursor: pointer;
-        color: #999999;
-
-        &.active {
-          color: #333333;
-        }
-      }
-    }
   }
 
   main {
     padding: 0 16rem;
+    background: #fff;
   }
 
   footer {
@@ -108,11 +116,6 @@ $MQMobileNarrow: 480px;
   .layout-page {
     header {
       padding: 0 1.5rem;
-
-      .locale {
-        top: 3rem;
-        right: 3rem;
-      }
     }
     main {
       padding: 0 1.5rem;
@@ -124,13 +127,13 @@ $MQMobileNarrow: 480px;
   }
 
   .layout-sidebar {
-    &.un-hover-expand {
-      width: 60px;
+    &.un-expand {
+      width: 60px !important;
     }
   }
 
   .page-container {
-    padding-left: 60px !important;
+    margin-left: 60px !important;
   }
 }
 
@@ -139,11 +142,6 @@ $MQMobileNarrow: 480px;
   .layout-page {
     header {
       padding: 0 1rem;
-
-      .locale {
-        top: 3rem;
-        right: 3rem;
-      }
     }
     main {
       padding: 0 1rem;
@@ -155,13 +153,13 @@ $MQMobileNarrow: 480px;
   }
 
   .layout-sidebar {
-    &.un-hover-expand {
-      width: 60px;
+    &.un-expand {
+      width: 60px !important;
     }
   }
 
   .page-container {
-    padding-left: 60px !important;
+    margin-left: 60px !important;
   }
 }
 </style>

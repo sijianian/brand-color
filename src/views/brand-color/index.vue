@@ -1,7 +1,8 @@
 <template>
   <page
     class="page-brand-color"
-    title="Brand Color">
+    title="Brand Color"
+    ref="page">
     <el-tabs class="tabs"
       slot="header-other"
       v-model="activeName">
@@ -17,7 +18,7 @@
     </el-tabs>
 
     <div class="download">
-      <img src="../../assets/sketch.png" alt="">
+      <img src="@/assets/images/sketch.png" alt="">
     </div>
 
     <div class="content"
@@ -51,7 +52,7 @@
       <h3>Case</h3>
 
       <div class="img-wrap">
-        <img src="../../assets/Snip20180624_23.png" alt="">
+        <img src="@/assets/images/Snip20180624_23.png" alt="">
       </div>
 
       <h2>Font colors</h2>
@@ -77,39 +78,20 @@
       <h3>Case</h3>
 
       <div class="img-wrap">
-        <img src="../../assets/Snip20180624_24.png" alt="">
+        <img src="@/assets/images/Snip20180624_24.png" alt="">
 
         <br>
 
-        <img src="../../assets/Snip20180624_24.png" alt="">
+        <img src="@/assets/images/Snip20180624_24.png" alt="">
       </div>
     </div>
-
-    <back-top>
-      <template slot="other">
-        <div class="m-back-top-inner"
-          :style="{
-            marginTop: '5px'
-          }">
-          <i class="iconfont icon-help"
-            :style="{
-              fontSize: '20px',
-              color: '#fff',
-            }"/>
-        </div>
-      </template>
-    </back-top>
   </page>
 </template>
 
 <script>
 import clipboard from '@/utils/clipboard'
-import BackTop from '@/components/back-top'
 
 export default {
-  components: {
-    BackTop,
-  },
   data() {
     return {
       activeName: '1',

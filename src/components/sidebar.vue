@@ -2,13 +2,11 @@
   <div class="layout-sidebar"
     :class="{
       'un-expand': !isExpand,
-      'un-hover-expand': isHoverExpand,
-    }"
-    @mouseenter.stop="unExpandMouseenter"
-    @mouseleave.stop="unExpandMouseleave">
+    }">
     <div class="un-expand-wrap"
       v-show="!isExpand">
-      <div class="logo"/>
+      <i class="iconfont icon-alibaba"
+        @click="redirectHome"/>
 
       <i class="iconfont icon-search"
         @click="openSearch"/>
@@ -22,9 +20,9 @@
       <i class="el-icon-close"
         @click="handleExpandClose"/>
 
-      <el-button class="layout-sidebar-logo">
-        <span style="color: #FF6868">Logo</span>
-      </el-button>
+      <img class="layout-sidebar-logo"
+        src="@/assets/images/logo.png"
+        @click="redirectHome">
 
       <search-box ref="searchBox"/>
 
@@ -69,18 +67,9 @@ export default {
   components: {
     SearchBox,
   },
-  props: {
-    isExpand: {
-      type: Boolean,
-      default: true,
-    },
-    isHoverExpand: {
-      type: Boolean,
-      default: false,
-    },
-  },
   data() {
     return {
+      isExpand: false,
       isCollapse: false,
       menuList: [
         {
@@ -110,11 +99,10 @@ export default {
   },
   methods: {
     handleExpandOpen() {
-      this.$emit('update:isHoverExpand', false)
-      this.$emit('update:isExpand', true)
+      this.isExpand = true
     },
     handleExpandClose() {
-      this.$emit('update:isExpand', false)
+      this.isExpand = false
     },
     openSearch() {
       this.handleExpandOpen()
@@ -122,14 +110,10 @@ export default {
         this.$refs.searchBox.$el.focus()
       })
     },
-    unExpandMouseenter() {
-      if (this.isExpand) {
-        return
-      }
-      this.$emit('update:isHoverExpand', true)
-    },
-    unExpandMouseleave() {
-      this.$emit('update:isHoverExpand', false)
+    redirectHome() {
+      this.$router.push({
+        name: 'home',
+      })
     },
   },
 }
@@ -137,10 +121,8 @@ export default {
 
 <style lang="scss">
 .layout-sidebar {
+  float: left;
   width: 385px;
-  position: fixed;
-  top: 0;
-  bottom: 0;
   height: 100%;
   background: #1c1c1c;
   overflow-y: auto;
@@ -150,15 +132,14 @@ export default {
 
   &.un-expand {
     width: 60px;
-  }
-
-  &.un-hover-expand {
-    width: 80px;
+    &:hover {
+      width: 80px;
+    }
   }
 
   .search-box-icon {
     position: absolute;
-    top: 230px;
+    top: 226px;
     right: 80px;
     font-size: 20px;
   }
@@ -170,26 +151,24 @@ export default {
     justify-content: center;
     margin-top: 80px;
 
-    .logo {
-      width: 40px;
-      height: 20px;
-      background: #d8d8d8;
-      cursor: pointer;
-    }
-
     i {
-      margin-top: 40px;
       font-size: 30px;
       color: #999999;
       cursor: pointer;
-
+      &:not(:first-child) {
+        margin-top: 40px;
+      }
       &.icon-category {
+        font-size: 18px;
+      }
+      &.icon-alibaba {
         font-size: 18px;
       }
     }
   }
 
   .expand-wrap {
+    position: relative;
     .el-icon-close {
       position: absolute;
       top: 40px;
@@ -203,8 +182,8 @@ export default {
     .layout-sidebar-logo {
       border-radius: 0;
       margin: 80px 0 100px 0;
-      background: #d8d8d8;
       width: 190px;
+      cursor: pointer;
     }
 
     .line {
