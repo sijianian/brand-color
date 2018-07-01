@@ -66,6 +66,10 @@ export default {
       font-size: 12px;
       color: #000000;
       font-weight: 600;
+      transition: all 0.2s;
+      &:hover {
+        text-decoration: underline;
+      }
     }
   }
 

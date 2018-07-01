@@ -48,6 +48,9 @@ export default {
       default: '',
     },
   },
+  mounted() {
+    document.body.querySelector('.layout-container').scrollTop = 0
+  },
   methods: {
     getBackTopTarget() {
       return document.body.querySelector('.layout-container')
