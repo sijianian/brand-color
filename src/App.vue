@@ -1,8 +1,8 @@
 <template>
   <div id="app">
-    <sidebar/>
+    <sidebar v-if="!isHome"/>
     <div class="layout-container">
-      <layout-header/>
+      <layout-header :has-logo="isHome"/>
       <router-view></router-view>
     </div>
     <div class="loading">
@@ -21,6 +21,11 @@ export default {
     LayoutHeader,
     Sidebar,
     Page,
+  },
+  computed: {
+    isHome() {
+      return this.$route.name === 'home'
+    },
   },
 }
 </script>
