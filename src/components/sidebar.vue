@@ -122,7 +122,7 @@ export default {
 <style lang="scss">
 .layout-sidebar {
   float: left;
-  width: 385px;
+  width: 285px;
   height: 100%;
   background: #1c1c1c;
   overflow-y: auto;
@@ -140,7 +140,7 @@ export default {
   .search-box-icon {
     position: absolute;
     top: 226px;
-    right: 80px;
+    right: 30px;
     font-size: 20px;
   }
 
@@ -149,7 +149,7 @@ export default {
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    margin-top: 80px;
+    margin-top: 22px;
 
     i {
       font-size: 30px;
@@ -171,8 +171,8 @@ export default {
     position: relative;
     .el-icon-close {
       position: absolute;
-      top: 40px;
-      left: 40px;
+      top: 20px;
+      left: 20px;
       color: #fff;
       font-size: 30px;
       font-weight: bold;
@@ -207,7 +207,7 @@ export default {
       border-right: none;
 
       .el-menu-item-group {
-        padding: 0 26px 0 44px;
+        padding: 0 26px 0 32px;
         text-align: left;
 
         .el-menu-item-group__title {

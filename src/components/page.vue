@@ -74,7 +74,7 @@ export default {
     .title {
       box-sizing: border-box;
       display: inline-block;
-      padding: 13rem 0 3rem 0;
+      padding: 7.5rem 0 3rem 0;
       line-height: 7.5rem;
       font-size: 6.4rem;
       color: #333333;

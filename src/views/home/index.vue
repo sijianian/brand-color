@@ -194,13 +194,20 @@ export default {
     padding: 0;
   }
   .content {
-    padding: 100px 50px;
+    padding: 100px;
     .item {
       text-align: left;
       display: flex;
 
       &:not(:last-child) {
         margin-bottom: 180px;
+      }
+
+      .right {
+        .img-box,
+        .intro {
+          max-width: 600px;
+        }
       }
 
       &.item-03 {

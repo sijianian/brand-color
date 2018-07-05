@@ -38,7 +38,7 @@ export default {}
 .home-banner {
   background: #1c1c1c;
   color: #fff;
-  padding: 100px 50px;
+  padding: 100px;
   text-align: left;
   overflow: hidden;
   display: flex;
@@ -112,6 +112,7 @@ export default {}
   }
   .right {
     width: 60%;
+    max-width: 900px;
     img {
       display: inline-block;
       height: auto;
